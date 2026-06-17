@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750">
+  <rect width="1200" height="750" fill="#f5f1e8"/>
+  <rect x="98" y="82" width="1004" height="586" rx="12" fill="#fbfaf6" stroke="#cfc4ad"/>
+  <text x="150" y="175" font-family="Georgia, serif" font-size="62" fill="#12151d">Le carnet</text>
+  <text x="150" y="240" font-family="Inter, Arial, sans-serif" font-size="28" fill="#687282">French as a practice of attention.</text>
+  <g stroke="#193a5a" stroke-width="4" fill="none">
+    <path d="M160 330 H1040"/>
+    <path d="M160 410 H1040"/>
+    <path d="M160 490 H1040"/>
+    <path d="M160 570 H1040"/>
+  </g>
+  <g fill="#245c4f" font-family="Georgia, serif" font-size="46">
+    <text x="190" y="386">la mémoire</text>
+    <text x="190" y="466">le rythme</text>
+    <text x="190" y="546">les mots justes</text>
+  </g>
+  <circle cx="930" cy="310" r="82" fill="#9e3d32" opacity=".9"/>
+  <circle cx="930" cy="310" r="52" fill="#f5f1e8"/>
+</svg>

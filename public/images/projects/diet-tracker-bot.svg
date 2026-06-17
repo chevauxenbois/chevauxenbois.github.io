@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Diet Tracker Bot</title>
+  <desc id="desc">Telegram and Notion workflow artwork for meal logging and nutrition scoring.</desc>
+  <rect width="1200" height="620" fill="#102033"/>
+  <circle cx="980" cy="128" r="170" fill="#244e43"/>
+  <circle cx="184" cy="506" r="220" fill="#7d3932"/>
+  <rect x="92" y="70" width="420" height="470" rx="28" fill="#f9f6ef"/>
+  <rect x="150" y="132" width="304" height="62" rx="31" fill="#e8eef4"/>
+  <rect x="150" y="222" width="244" height="62" rx="31" fill="#eaf3ef"/>
+  <rect x="150" y="312" width="318" height="62" rx="31" fill="#fbf0df"/>
+  <text x="150" y="448" fill="#102033" font-family="Georgia, serif" font-size="48" font-weight="700">Diet Tracker Bot</text>
+  <rect x="626" y="102" width="482" height="400" rx="22" fill="#f9f6ef"/>
+  <text x="672" y="168" fill="#102033" font-family="Georgia, serif" font-size="42" font-weight="700">Notion log</text>
+  <g font-family="ui-monospace, Menlo, monospace" font-size="23" fill="#102033">
+    <text x="674" y="238">meal -> macros</text>
+    <text x="674" y="292">score -> great / okay / poor</text>
+    <text x="674" y="346">daily tips</text>
+    <text x="674" y="400">weekly report</text>
+  </g>
+  <path d="M530 302h70" stroke="#d6b063" stroke-width="10" stroke-linecap="round"/>
+</svg>

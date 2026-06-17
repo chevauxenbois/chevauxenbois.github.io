@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750">
+  <rect width="1200" height="750" fill="#17324d"/>
+  <rect x="88" y="88" width="1024" height="574" rx="16" fill="#f8fafc" opacity=".96"/>
+  <text x="140" y="180" font-family="Georgia, serif" font-size="72" fill="#12151d">Svikruti</text>
+  <text x="140" y="235" font-family="Inter, Arial, sans-serif" font-size="27" fill="#607086">PrivacyOps evidence for DPDPA readiness</text>
+  <g fill="none" stroke-width="6">
+    <path d="M180 430 H390 H580 H760 H960" stroke="#c7d5df"/>
+    <circle cx="180" cy="430" r="38" fill="#dbe8ef" stroke="#17324d"/>
+    <circle cx="390" cy="430" r="38" fill="#dff3f1" stroke="#047a78"/>
+    <circle cx="580" cy="430" r="38" fill="#f5ead1" stroke="#b7791f"/>
+    <circle cx="760" cy="430" r="38" fill="#f7dfdc" stroke="#b42318"/>
+    <circle cx="960" cy="430" r="38" fill="#e7e0f4" stroke="#6f42c1"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#12151d">
+    <text x="145" y="535">Scan</text>
+    <text x="348" y="535">Map</text>
+    <text x="530" y="535">RoPA</text>
+    <text x="710" y="535">Fix</text>
+    <text x="925" y="535">Gate</text>
+  </g>
+</svg>

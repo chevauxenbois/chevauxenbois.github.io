@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Security Intelligence Digest</title>
+  <desc id="desc">Editorial dashboard artwork for a security intelligence digest.</desc>
+  <rect width="1200" height="620" fill="#142338"/>
+  <rect x="70" y="64" width="1060" height="492" rx="18" fill="#f7f4ed"/>
+  <text x="110" y="140" fill="#142338" font-family="Georgia, serif" font-size="58" font-weight="700">Security Intelligence Digest</text>
+  <text x="112" y="188" fill="#657188" font-family="Inter, Arial, sans-serif" font-size="25">CVEs, security news, AI regulation, and GRC context</text>
+  <g transform="translate(112 250)" font-family="ui-monospace, Menlo, monospace" font-size="24">
+    <rect width="270" height="180" rx="14" fill="#e8eef4" stroke="#c7d3df"/>
+    <text x="28" y="58" fill="#142338">CVE watch</text>
+    <path d="M28 94h205M28 126h170" stroke="#9aa9ba" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="226" cy="58" r="17" fill="#a23b31"/>
+  </g>
+  <g transform="translate(465 250)" font-family="ui-monospace, Menlo, monospace" font-size="24">
+    <rect width="270" height="180" rx="14" fill="#eef7f3" stroke="#bdd9cc"/>
+    <text x="28" y="58" fill="#142338">AI summary</text>
+    <path d="M28 94h205M28 126h160" stroke="#95bcae" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="226" cy="58" r="17" fill="#2e6a5a"/>
+  </g>
+  <g transform="translate(818 250)" font-family="ui-monospace, Menlo, monospace" font-size="24">
+    <rect width="270" height="180" rx="14" fill="#f7eedc" stroke="#ddc89e"/>
+    <text x="28" y="58" fill="#142338">Notion</text>
+    <path d="M28 94h205M28 126h150" stroke="#c2a96e" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="226" cy="58" r="17" fill="#b8892d"/>
+  </g>
+  <path d="M386 340h62M739 340h62" stroke="#9a3d35" stroke-width="8" stroke-linecap="round"/>
+</svg>

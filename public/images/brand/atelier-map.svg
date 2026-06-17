@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Chevauxenbois atelier map</title>
+  <desc id="desc">A textured editorial map combining a wooden horse, security governance nodes, language notes, and code fragments.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f8f1df"/>
+      <stop offset="0.58" stop-color="#f0e0bd"/>
+      <stop offset="1" stop-color="#d9bd7e"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" fill="none" stroke="#172033" stroke-opacity=".08"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="900" fill="url(#paper)"/>
+  <rect width="1200" height="900" fill="url(#grid)"/>
+  <path d="M120 705 C210 610 230 490 330 455 C410 427 525 489 622 442 C733 389 752 255 888 230 C966 216 1032 250 1080 302" fill="none" stroke="#17324d" stroke-width="9" stroke-linecap="round"/>
+  <path d="M250 620 L330 500 L510 505 L610 610 L546 612 L494 548 L352 548 L305 620 Z" fill="#17324d" opacity=".95"/>
+  <path d="M350 500 C350 432 418 392 498 412 C552 425 596 466 636 482 C682 501 743 480 770 438 C789 409 820 386 870 387 C918 388 945 419 947 457 C950 515 897 557 822 558 C752 559 694 538 638 514 L610 610 L546 612 L494 548 L352 548 L305 620 L250 620 L330 500 Z" fill="#245c4f"/>
+  <path d="M797 394 L840 320 L875 390 Z" fill="#9e3d32"/>
+  <circle cx="850" cy="430" r="10" fill="#f4d58d"/>
+  <path d="M376 551 L322 728 M505 548 L548 730 M720 528 L676 727 M834 552 L873 728" stroke="#17324d" stroke-width="18" stroke-linecap="round"/>
+  <g fill="#12151d" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="28" opacity=".78">
+    <text x="88" y="132">security.governance()</text>
+    <text x="720" y="132">language.notes()</text>
+    <text x="90" y="806">infosec / privacy / ai / grc / languages</text>
+  </g>
+  <g stroke="#9e3d32" stroke-width="5" fill="#f8f1df">
+    <circle cx="205" cy="260" r="28"/>
+    <circle cx="390" cy="190" r="22"/>
+    <circle cx="612" cy="252" r="30"/>
+    <circle cx="960" cy="610" r="26"/>
+  </g>
+  <g stroke="#9e3d32" stroke-width="4" opacity=".75">
+    <path d="M230 253 L370 196 L590 245"/>
+    <path d="M640 263 L940 596"/>
+  </g>
+  <g fill="#17324d" font-family="Georgia, serif" font-size="42">
+    <text x="132" y="330">chevaux</text>
+    <text x="890" y="690">en bois</text>
+  </g>
+</svg>

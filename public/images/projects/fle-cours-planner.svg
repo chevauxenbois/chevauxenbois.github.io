@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">FLE Cours Planner</title>
+  <desc id="desc">Lesson planning interface artwork for French language teaching.</desc>
+  <rect width="1200" height="620" fill="#f5efe2"/>
+  <path d="M0 470C170 390 326 438 478 372c170-74 336-178 722-92v340H0z" fill="#1f5f51"/>
+  <rect x="82" y="66" width="1036" height="390" rx="18" fill="#fffdf8" stroke="#d9cdb9" stroke-width="3"/>
+  <text x="126" y="140" fill="#131a24" font-family="Georgia, serif" font-size="62" font-weight="700">FLE Cours Planner</text>
+  <text x="130" y="188" fill="#697386" font-family="Inter, Arial, sans-serif" font-size="25">Structured lesson plans for CE, CO, grammar, objectives, and exports</text>
+  <g transform="translate(130 248)" font-family="ui-monospace, Menlo, monospace">
+    <rect width="290" height="122" rx="12" fill="#eaf3ef" stroke="#b7d4c8"/>
+    <text x="24" y="48" fill="#1f5f51" font-size="24">Comprehension Ecrite</text>
+    <text x="24" y="86" fill="#697386" font-size="20">90 min + objectives</text>
+  </g>
+  <g transform="translate(456 248)" font-family="ui-monospace, Menlo, monospace">
+    <rect width="290" height="122" rx="12" fill="#eef2f7" stroke="#c2cede"/>
+    <text x="24" y="48" fill="#17324d" font-size="24">Grammaire</text>
+    <text x="24" y="86" fill="#697386" font-size="20">rules + practice</text>
+  </g>
+  <g transform="translate(782 248)" font-family="ui-monospace, Menlo, monospace">
+    <rect width="290" height="122" rx="12" fill="#fbf0df" stroke="#dfc69b"/>
+    <text x="24" y="48" fill="#9a3d35" font-size="24">Export</text>
+    <text x="24" y="86" fill="#697386" font-size="20">PDF / DOCX</text>
+  </g>
+</svg>

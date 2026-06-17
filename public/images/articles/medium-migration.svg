@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750">
+  <rect width="1200" height="750" fill="#12151d"/>
+  <path d="M0 610 C250 520 405 700 620 600 C820 505 940 505 1200 590 V750 H0Z" fill="#245c4f"/>
+  <rect x="110" y="108" width="420" height="520" rx="12" fill="#fbfaf6"/>
+  <rect x="670" y="108" width="420" height="520" rx="12" fill="#f5f1e8"/>
+  <g fill="#12151d" font-family="Georgia, serif">
+    <text x="155" y="190" font-size="54">Medium</text>
+    <text x="725" y="190" font-size="54">Owned home</text>
+  </g>
+  <g stroke="#b58a42" stroke-width="8" fill="none" stroke-linecap="round">
+    <path d="M555 365 H635"/>
+    <path d="M620 335 L652 365 L620 395"/>
+  </g>
+  <g fill="#687282" font-family="Inter, Arial, sans-serif" font-size="28">
+    <text x="155" y="280">export archive</text>
+    <text x="155" y="330">extract images</text>
+    <text x="155" y="380">preserve canonical</text>
+    <text x="725" y="280">markdown</text>
+    <text x="725" y="330">image captions</text>
+    <text x="725" y="380">topic archive</text>
+  </g>
+</svg>
