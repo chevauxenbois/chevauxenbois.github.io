@@ -1,7 +1,7 @@
 ---
-title: "OWASP LLM05:2025 — Improper Output Handling: When the Model's Response Becomes the Attack"
+title: "OWASP LLM05:2025 Improper Output Handling: When the Model's Response Becomes the Attack"
 date: "2026-06-24"
-summary: "Welcome to Securing the Stochastic : A Field Guide to the OWASP LLM Top 10, part 5 ; LLM05:2025 — Improper Output Handling."
+summary: "Welcome to Securing the Stochastic : A Field Guide to the OWASP LLM Top 10, part 5 ; LLM05:2025 Improper Output Handling."
 tags: ["AI Security", "GRC", "Privacy", "Security"]
 ---
 Welcome to part 5 of the series **Securing the Stochastic**: A Field Guide to the OWASP LLM Top 10.
@@ -251,7 +251,7 @@ A partner uploads a PDF from a client. The PDF, sent by the client in good faith
 
 The governing principle: **every byte of LLM output that crosses into a system capable of taking action must pass through validation specific to that downstream system's threat model.** The model's output is data, never code, never command, never query, until you have explicitly converted it through a validated, type-safe interface.
 
-### Layer 1: "The Schema Enforcer" — Constrained Output, Not Free-Form Strings
+### Layer 1: "The Schema Enforcer" (Constrained Output, Not Free-Form Strings)
 
 The single highest-leverage intervention is to stop accepting free-form strings from the model when a structured response would do. Modern model APIs support structured outputs: JSON Schema constraints (OpenAI structured outputs, Anthropic tool use), grammar-constrained sampling (Outlines, JSONformer), and function-calling interfaces where the model must emit a parameter object matching a strict schema.
 
@@ -293,7 +293,7 @@ def handle_query(user_input: str):
 
 Notice what this changes. The user types whatever they want. The model produces structured output that is *guaranteed* to conform to the schema. The application's downstream code never concatenates a model string into a SQL query; it builds the query from typed, validated fields. The model has been moved from "code author" to "intent classifier", which is what it should have been all along.
 
-### Layer 2: "The Sanitiser" — Context-Aware Output Encoding
+### Layer 2: "The Sanitiser" (Context-Aware Output Encoding)
 
 For the cases where you genuinely need free-form text from the model (chat responses, summaries, generated content), the output must be sanitised at the boundary of every system that interprets text specially. The sanitiser must be context-aware: HTML needs DOMPurify, SQL needs parameterisation, shell needs `shlex.quote`, filesystem paths need realpath validation, URLs need scheme and host allowlists.
 
@@ -337,7 +337,7 @@ def sanitise_for_shell(model_output_arg: str) -> str:
     return shlex.quote(model_output_arg)
 ```
 
-### Layer 3: "The Sandbox" — Isolated Execution for Agentic Code
+### Layer 3: "The Sandbox" (Isolated Execution for Agentic Code)
 
 When the model emits code that will be executed, the execution environment must be hardened on the assumption that the code is hostile. This is not pessimism; it is operational reality. Indirect prompt injection has demonstrated, repeatedly, that any input the model reads is a potential source of hostile code emission.
 
@@ -389,7 +389,7 @@ def execute_llm_code_safely(code: str):
     return run_in_sandbox(code, network=False, fs="/tmp/sandbox", timeout=5)
 ```
 
-### Layer 4: "The Boundary Auditor" — Treat Every Tool Call as a Trust Boundary Crossing
+### Layer 4: "The Boundary Auditor" (Treat Every Tool Call as a Trust Boundary Crossing)
 
 In agentic frameworks, every tool call is a moment where the model's output crosses from "stochastic text generation" into "deterministic action in another system." That moment is the trust boundary. Every tool call should be logged, the parameters should be validated against the tool's expected schema (and against business rules, not just type rules), and high-impact tool calls (anything that sends, deletes, modifies, or pays) should require human-in-the-loop approval.
 
@@ -439,7 +439,7 @@ def invoke_tool(tool_name: str, model_emitted_args: dict, session):
     return execute_tool(tool_name, validated_args)
 ```
 
-### Layer 5: "The Honeypot Output" — Canaries for Exfiltration Detection
+### Layer 5: "The Honeypot Output" (Canaries for Exfiltration Detection)
 
 Borrowing from the Part 4 playbook: plant canary tokens in the data the model has access to, and monitor every outbound channel (URLs the model emits, images it renders, links it includes in responses) for those canaries. If a canary ever appears in an outbound URL or a rendered link, you have detected an exfiltration attempt in progress.
 
@@ -534,24 +534,24 @@ This is not a glamorous mental model. It does not involve any cutting-edge AI sa
 
 ## Sources / References
 
-1. OWASP LLM05:2025 — Improper Output Handling: genai.owasp.org/llmrisk/llm052025-improper-output-handling/
-2. OWASP A03:2021 — Injection (the foundational pattern): owasp.org/Top10/A03_2021-Injection/
-3. Johann Rehberger — M365 Copilot ASCII Smuggling and Data Exfiltration: embracethered.com/blog/posts/2024/m365-copilot-prompt-injection-tool-invocation-and-data-exfil-using-ascii-smuggling/
-4. Aim Labs — EchoLeak (CVE-2025-32711) disclosure: aim.security/lp/aim-labs-echoleak-blogpost
-5. Wiz Research — Replicate AI cross-tenant RCE: wiz.io/blog/wiz-research-discovers-critical-vulnerability-in-replicate
+1. OWASP LLM05:2025 Improper Output Handling: genai.owasp.org/llmrisk/llm052025-improper-output-handling/
+2. OWASP A03:2021, Injection (the foundational pattern): owasp.org/Top10/A03_2021-Injection/
+3. Johann Rehberger, M365 Copilot ASCII Smuggling and Data Exfiltration: embracethered.com/blog/posts/2024/m365-copilot-prompt-injection-tool-invocation-and-data-exfil-using-ascii-smuggling/
+4. Aim Labs, EchoLeak (CVE-2025-32711) disclosure: aim.security/lp/aim-labs-echoleak-blogpost
+5. Wiz Research, Replicate AI cross-tenant RCE: wiz.io/blog/wiz-research-discovers-critical-vulnerability-in-replicate
 6. LangChain Security Advisories: github.com/langchain-ai/langchain/security/advisories
 7. OpenAI Structured Outputs documentation: platform.openai.com/docs/guides/structured-outputs
-8. Anthropic — Tool use overview: docs.anthropic.com/en/docs/build-with-claude/tool-use
-9. NIST AI 100-2 E2023 — Adversarial Machine Learning Taxonomy: nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.pdf
+8. Anthropic, Tool use overview: docs.anthropic.com/en/docs/build-with-claude/tool-use
+9. NIST AI 100-2 E2023, Adversarial Machine Learning Taxonomy: nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.pdf
 10. Pydantic documentation: docs.pydantic.dev
 11. Outlines (structured generation): github.com/dottxt-ai/outlines
 12. Guardrails AI: github.com/guardrails-ai/guardrails
 13. NVIDIA NeMo Guardrails: github.com/NVIDIA/NeMo-Guardrails
 14. DOMPurify: github.com/cure53/DOMPurify
 15. SQLGlot: github.com/tobymao/sqlglot
-16. Guard0.ai — Guard0 Platform, g0, TrustVector, AIHEM: guard0.ai | github.com/guard0-ai/g0 | trustvector.dev | github.com/Guard0-Security/AIHEM
+16. Guard0.ai, Guard0 Platform, g0, TrustVector, AIHEM: guard0.ai | github.com/guard0-ai/g0 | trustvector.dev | github.com/Guard0-Security/AIHEM
 17. Images: Gemini
 
 *Disclaimer: The tools, libraries, and vendors mentioned in this article are provided for educational and illustrative purposes only. Their inclusion does not constitute a formal endorsement, warranty, or guarantee of their efficacy. Security landscapes evolve rapidly; always conduct your own due diligence, threat modelling, and testing before deploying any third-party solution in a production environment.*
 
-**Next in the series**: LLM06:2025 — Excessive Agency, where the question shifts from "what did the model output?" to "what was the model allowed to *do*?", and the blast radius of an LLM-driven action becomes the central design question.
+**Next in the series**: LLM06:2025, Excessive Agency, where the question shifts from "what did the model output?" to "what was the model allowed to *do*?", and the blast radius of an LLM-driven action becomes the central design question.
