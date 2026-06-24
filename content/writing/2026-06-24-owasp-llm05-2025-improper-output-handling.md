@@ -532,34 +532,6 @@ The mental model that works: **the LLM is a sophisticated user-input transformat
 
 This is not a glamorous mental model. It does not involve any cutting-edge AI safety research. It involves applying twenty-five years of injection-prevention wisdom to a new injection surface. That is exactly what makes it the right answer.
 
-## Essential Tools and Libraries at a Glance
-
-The tooling for output handling is, fortunately, largely the same tooling we already have for injection prevention, augmented by a small but growing set of LLM-specific output validators.
-
-**Pydantic + OpenAI Structured Outputs / Anthropic Tool Use (Open-source / Vendor)** — The single highest-leverage tool in this list. Define a strict Pydantic schema, hand it to the model API, get back a typed object. Eliminates whole categories of free-string injection. 🔗 docs.pydantic.dev | platform.openai.com/docs/guides/structured-outputs
-
-**Outlines (Open-source, Apache-2.0)** — Grammar-constrained sampling for any LLM, including open-source models that do not natively support structured outputs. Lets you constrain output to a regex, JSON schema, or context-free grammar at sampling time, so the model literally cannot emit out-of-schema content. 🔗 github.com/dottxt-ai/outlines
-
-**Guardrails AI (Open-source)** — Output validation framework with a library of pre-built validators (PII detection, toxicity, profanity, JSON schema, regex, semantic similarity). Wraps your LLM call and reruns or rejects on validation failure. 🔗 github.com/guardrails-ai/guardrails
-
-**NVIDIA NeMo Guardrails (Open-source, Apache-2.0)** — Programmable guardrails for LLM applications, including output rails (validate before emit), execution rails (validate before tool call), and dialog rails (constrain conversation flow). Strong fit for agentic systems where output handling crosses multiple sinks. 🔗 github.com/NVIDIA/NeMo-Guardrails
-
-**DOMPurify (Open-source) / bleach (Python, Apache-2.0)** — The reference HTML sanitisers. If your frontend renders any LLM output as HTML, one of these is non-optional. DOMPurify on the client, bleach on the server, both in defence-in-depth. 🔗 github.com/cure53/DOMPurify | github.com/mozilla/bleach
-
-**SQLGlot (Open-source, MIT)** — A SQL parser and analyser in Python. If you absolutely must accept LLM-generated SQL, parse it with SQLGlot first, walk the AST, and reject anything that touches DDL, stacked statements, or tables outside an allowlist. 🔗 github.com/tobymao/sqlglot
-
-**E2B / Modal Sandboxes (Commercial, generous free tier)** — Production-grade sandboxes for executing LLM-generated code. Network-isolated, ephemeral, resource-limited. The right answer for agentic code interpreters that go to production. 🔗 e2b.dev | modal.com
-
-**Promptfoo (Open-source, MIT)** — LLM testing framework with strong support for output validation tests. Build a suite of "the model should never emit X in response to Y" tests and run them in CI as a regression gate. 🔗 github.com/promptfoo/promptfoo
-
-**⭐ Guard0 Platform — Guard0.ai (Commercial)** — AI Security Posture Management with runtime monitoring of LLM output flows. Detects anomalous output patterns, sudden emergence of SQL keywords in a chatbot, URLs to previously-unseen hosts, code patterns in summarisation responses, that signal an output handling exploit attempt in progress. 🔗 guard0.ai
-
-**⭐ g0, Guard0.ai (Open-source, AGPL-3.0)** — The control layer for AI agents, with output-side enforcement: 1,200+ security rules covering tool-call validation, output schema enforcement, and exfiltration detection. `g0 test` includes 4,000+ adversarial payloads specifically targeting output-handling vulnerabilities across 10 frameworks including LangChain, LangGraph, CrewAI, OpenAI Agents SDK, and MCP. Every finding maps to OWASP, NIST, ISO, and EU AI Act. 🔗 github.com/guard0-ai/g0 | guard0.ai/g0
-
-**⭐ TrustVector — Guard0.ai (Open-source)** — Evidence-based trust scoring for 100+ AI models, agents, and tools. The Operational Excellence and Security dimensions include explicit assessment of an agent framework's default output-handling posture, whether it ships with safe defaults or requires opt-in hardening. Use it during vendor selection. 🔗 trustvector.dev | github.com/guard0-ai/TrustVector
-
-**⭐ AIHEM — Guard0.ai (Open-source, educational)** — The DVWA for LLM security. Includes deliberately vulnerable output-handling scenarios: text-to-SQL with no sanitisation, agentic code execution with no sandbox, chat UI with `dangerouslySetInnerHTML`. The right starting point for hands-on red-team training before defending production. 🔗 github.com/Guard0-Security/AIHEM
-
 ## Sources / References
 
 1. OWASP LLM05:2025 — Improper Output Handling: genai.owasp.org/llmrisk/llm052025-improper-output-handling/
