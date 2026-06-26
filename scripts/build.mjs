@@ -353,7 +353,164 @@ function listingPage({ title, eyebrow, copy, items, collection }) {
   });
 }
 
+function svikrutiProjectPage(item) {
+  const quickstart = `git clone https://github.com/chevauxenbois/svikruti
+cd svikruti
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e .
+svikruti scan --repo examples/realistic --save-history
+svikruti dashboard`;
+
+  const outputs = [
+    ["Local dashboard", "A review cockpit for risk, control posture, breach readiness, evidence search, and AI-ready summaries."],
+    ["HTML evidence pack", "A portable report for privacy, security, legal, product, and engineering review without uploading code."],
+    ["SARIF", "GitHub code scanning output so privacy and security findings can show up in pull-request workflows."],
+    ["RoPA CSV", "A starter processing inventory with data categories, purposes, owners, systems, vendors, and evidence references."],
+    ["Vendor CSV", "Third-party and processor register starter with DPA, transfer, safeguards, review, and ownership fields."],
+    ["Fix pack", "Copy-ready issue bodies for GitHub, Jira, or Linear with priority, owner hints, acceptance criteria, and evidence links."],
+  ];
+
+  const features = [
+    ["Code-aware discovery", "Scans source code, web surfaces, OpenAPI/schema files, Kubernetes/IaC signals, notices, and consent traces to find privacy-relevant evidence."],
+    ["Technical controls", "Connects DPDPA readiness to encryption, secret hygiene, logging risk, vulnerability management, monitoring, backup, and incident response evidence."],
+    ["AI-native evidence", "Produces structured evidence packets that an AI reviewer can summarize without inventing facts outside the scanner results."],
+    ["Local-first posture", "Runs on your machine by default. Teams can inspect results without sending repositories or sensitive evidence to a hosted scanner."],
+  ];
+
+  return layout({
+    title: item.title,
+    description: item.summary,
+    ogImage: "/images/projects/svikruti-dashboard-command-center.png",
+    pageClass: "svikruti-product-page",
+    body: `
+      <section class="svk-hero">
+        <div class="svk-hero-copy">
+          <p class="svk-eyebrow">Open source privacy engineering for India</p>
+          <h1>Svikruti turns DPDPA readiness into engineering evidence.</h1>
+          <p class="svk-lead">A local-first PrivacyOps workbench that scans code, websites, notices, cloud and security signals, vendors, and consent surfaces, then turns them into actions teams can review before a release.</p>
+          <div class="svk-actions">
+            <a class="button" href="https://github.com/chevauxenbois/svikruti">View GitHub</a>
+            <a class="button secondary" href="#quickstart">Run locally</a>
+            <a class="button secondary" href="${site.svikruti}">Open launch site</a>
+          </div>
+          <div class="svk-proof-strip" aria-label="Svikruti positioning">
+            <span>DPDPA</span>
+            <span>PrivacyOps</span>
+            <span>SARIF</span>
+            <span>RoPA</span>
+            <span>AI-ready evidence</span>
+          </div>
+        </div>
+        <div class="svk-product-shot" aria-label="Svikruti dashboard preview">
+          <div class="svk-window-bar"><span></span><span></span><span></span><strong>svikruti dashboard</strong></div>
+          <img src="/images/projects/svikruti-dashboard-command-center.png" alt="Svikruti command center dashboard showing DPDPA risk, breach readiness, controls, parser coverage, and evidence counts.">
+        </div>
+      </section>
+
+      <section class="svk-metrics" aria-label="Project highlights">
+        <div><strong>Local-first</strong><span>No hosted upload required for the open-source workflow.</span></div>
+        <div><strong>Multi-signal</strong><span>Code, web, notices, controls, vendors, breach readiness.</span></div>
+        <div><strong>Review-ready</strong><span>Dashboard, HTML, JSON, SARIF, CSV, Markdown fix packs.</span></div>
+        <div><strong>AI-native</strong><span>Optional synthesis grounded in scanner evidence.</span></div>
+      </section>
+
+      <section class="svk-section svk-split">
+        <div>
+          <p class="svk-eyebrow">Why it exists</p>
+          <h2>DPDPA compliance should not stop at policies and screenshots.</h2>
+          <p>Most compliance work becomes a tracker of manual statements: policy exists, screenshot attached, owner says done. Svikruti takes a different approach. It starts from the systems that actually process data, then creates a trace from source evidence to privacy obligation, control posture, and remediation.</p>
+          <p>The goal is not to replace legal review. The goal is to give privacy, security, product, and engineering teams a shared evidence layer they can inspect, challenge, and improve.</p>
+        </div>
+        <div class="svk-feature-stack">
+          ${features.map(([title, copy]) => `<article><h3>${title}</h3><p>${copy}</p></article>`).join("")}
+        </div>
+      </section>
+
+      <section class="svk-section">
+        <div class="svk-section-head">
+          <p class="svk-eyebrow">Workflow</p>
+          <h2>One scan, many review surfaces.</h2>
+        </div>
+        <div class="svk-flow" aria-label="Svikruti workflow">
+          <div><span>01</span><strong>Scan</strong><p>Repository, website, notice, consent path, schema, cloud and security evidence.</p></div>
+          <div><span>02</span><strong>Map</strong><p>Connect personal-data categories to source files, systems, vendors, and notice coverage.</p></div>
+          <div><span>03</span><strong>Control</strong><p>Score technical controls such as encryption, monitoring, secrets, vulnerability management, and incident readiness.</p></div>
+          <div><span>04</span><strong>Gate</strong><p>Convert high-risk evidence into release decisions, owners, priorities, and acceptance criteria.</p></div>
+          <div><span>05</span><strong>Export</strong><p>Generate artifacts for humans, CI, GRC workflows, procurement, legal review, and AI synthesis.</p></div>
+        </div>
+      </section>
+
+      <section class="svk-section svk-showcase">
+        <div>
+          <p class="svk-eyebrow">Product surface</p>
+          <h2>A dashboard for privacy programs that need engineering proof.</h2>
+          <p>Use the local dashboard during release review, audit preparation, vendor checks, or breach readiness conversations. It is designed to show what was found, what is weak, what needs an owner, and which artifacts can be exported.</p>
+        </div>
+        <div class="svk-shot-grid">
+          <figure>
+            <img src="/images/projects/svikruti-control-plane-technical.png" alt="Svikruti technical control plane dashboard.">
+            <figcaption>Technical control plane</figcaption>
+          </figure>
+          <figure>
+            <img src="/images/projects/svikruti-control-plane-breach.png" alt="Svikruti breach readiness dashboard.">
+            <figcaption>Breach readiness posture</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="svk-section svk-output-section">
+        <div class="svk-section-head">
+          <p class="svk-eyebrow">Launch artifact pack</p>
+          <h2>Outputs that match how teams actually work.</h2>
+        </div>
+        <div class="svk-output-grid">
+          ${outputs.map(([title, copy]) => `<article><h3>${title}</h3><p>${copy}</p></article>`).join("")}
+        </div>
+      </section>
+
+      <section id="quickstart" class="svk-section svk-terminal-band">
+        <div>
+          <p class="svk-eyebrow">Quickstart</p>
+          <h2>Run it locally, inspect the evidence, then decide what to fix.</h2>
+          <p>Start with the realistic example pack, then point the scanner at your own repository. The open-source flow keeps the scan local and generates review artifacts you can share intentionally.</p>
+        </div>
+        <pre><code>${escapeHtml(quickstart)}</code></pre>
+      </section>
+
+      <section class="svk-section svk-roadmap">
+        <div>
+          <p class="svk-eyebrow">Open source now</p>
+          <h2>Built for builders, privacy teams, and reviewers.</h2>
+          <p>The community version is meant to stay useful on its own: local scans, dashboard, evidence packs, export formats, and CI-friendly outputs.</p>
+        </div>
+        <div>
+          <p class="svk-eyebrow">Enterprise direction</p>
+          <h2>Continuous PrivacyOps across products and releases.</h2>
+          <p>Hosted evidence vault, scan history, org dashboards, SSO/RBAC, approvals, Jira/Linear/GRC integrations, and domain packs for BFSI, healthcare, ecommerce, SaaS, and fintech teams.</p>
+        </div>
+      </section>
+
+      <section class="svk-cta">
+        <div>
+          <p class="svk-eyebrow">Build in public</p>
+          <h2>Use it, star it, break it, improve it.</h2>
+          <p>Svikruti is my attempt to make DPDPA readiness more practical for India's privacy community: less theatre, more evidence, more open-source tooling.</p>
+        </div>
+        <div class="svk-actions">
+          <a class="button" href="https://github.com/chevauxenbois/svikruti">Star on GitHub</a>
+          <a class="button secondary" href="https://forms.gle/TaBLyFdXdmP1XMek8">Talk about DPDPA journey</a>
+        </div>
+      </section>
+    `,
+  });
+}
+
 function articlePage(item) {
+  if (item.collection === "projects" && item.slug === "svikruti") {
+    return svikrutiProjectPage(item);
+  }
+
   const canonical = item.canonical ? `<a href="${item.canonical}">Original / canonical</a>` : "";
   return layout({
     title: item.title,
