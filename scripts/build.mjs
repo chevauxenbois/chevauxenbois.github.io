@@ -209,7 +209,7 @@ function layout({ title, description, body, pageClass = "", ogImage = "/images/b
   <meta property="og:description" content="${escapeHtml(description || site.description)}">
   <meta property="og:type" content="website">
   <meta property="og:image" content="${escapeHtml(ogImage)}">
-  <link rel="stylesheet" href="/assets/styles.css?v=20260617">
+  <link rel="stylesheet" href="/assets/styles.css?v=20260626">
   <link rel="alternate" type="application/rss+xml" title="Chevauxenbois writing" href="/rss.xml">
 </head>
 <body class="${pageClass}">
